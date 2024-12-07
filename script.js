@@ -7,12 +7,11 @@ let activeMoleIndex = -1;
 let gameInterval;
 let moleInterval;
 let countdownInterval;
-let gameTime = 20; // Время игры в секундах
+let gameTime = 20; 
 let gameActive = false;
 
-// Функция для начала игры
 function startGame() {
-    if (gameActive) return;  // Если игра уже идет, ничего не делаем
+    if (gameActive) return;  
 
     gameActive = true;
     score = 0;
@@ -20,10 +19,8 @@ function startGame() {
     gameTime = 20;
     timerDisplay.textContent = `Время: ${gameTime}`;
 
-    // Скрываем всех кротов
     hideMole();
 
-    // Начинаем игру
     gameInterval = setInterval(() => {
         if (gameTime <= 0) {
             clearInterval(moleInterval);
@@ -35,10 +32,8 @@ function startGame() {
         }
     }, 1000);
 
-    // Интервал для появления кротов
     moleInterval = setInterval(showMole, 1000);
 
-    // Обратный отсчет времени
     countdownInterval = setInterval(() => {
         if (gameTime > 0) {
             gameTime--;
@@ -47,15 +42,13 @@ function startGame() {
     }, 1000);
 }
 
-// Функция для появления крота в случайной ячейке
 function showMole() {
-    hideMole(); // Скрываем крота из предыдущей ячейки
+    hideMole(); 
 
     const randomIndex = Math.floor(Math.random() * holes.length);
     holes[randomIndex].classList.add('mole');
     activeMoleIndex = randomIndex;
 
-    // Вставляем SVG крота в выбранную ячейку
     holes[randomIndex].innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
             <!-- Тело крота -->
@@ -76,36 +69,31 @@ function showMole() {
         </svg>
     `;
 
-    // Применяем изменение фона через небольшой таймаут
     setTimeout(() => {
-        holes[randomIndex].style.backgroundColor = "orange"; // Устанавливаем оранжевый фон
+        holes[randomIndex].style.backgroundColor = "orange"; 
     }, 10);
 
-    // Убираем крота через 0.8 секунды
     setTimeout(() => hideMole(), 800);
 }
 
-// Функция для скрытия крота
 function hideMole() {
     if (activeMoleIndex >= 0) {
         holes[activeMoleIndex].classList.remove('mole');
-        holes[activeMoleIndex].innerHTML = ''; // Убираем SVG крота
-        holes[activeMoleIndex].style.backgroundColor = "#555555"; // Возвращаем исходный фон
+        holes[activeMoleIndex].innerHTML = '';
+        holes[activeMoleIndex].style.backgroundColor = "#555555"; 
     }
 }
 
-// Обработчик кликов по ячейке
 holes.forEach((hole, index) => {
     hole.addEventListener('click', () => {
         if (hole.classList.contains('mole')) {
             score++;
             scoreDisplay.textContent = `Очки: ${score}`;
             hole.classList.remove('mole');
-            hole.innerHTML = ''; // Убираем SVG крота
-            hole.style.backgroundColor = "#555555"; // Возвращаем исходный фон
+            hole.innerHTML = ''; 
+            hole.style.backgroundColor = "#555555"; 
         }
     });
 });
 
-// Запуск игры по нажатию кнопки
 startButton.addEventListener('click', startGame);

@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000; /* Черный фон */
-    color: white; /* Белый текст */
+    background-color: #000000; 
+    color: white; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,10 +11,10 @@ body {
 
 .game-container {
     text-align: center;
-    background-color: #333333; /* Темный фон для контейнера */
+    background-color: #333333; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Легкая тень */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
 }
 
 h1 {
@@ -36,7 +36,7 @@ h1 {
 .hole {
     width: 100px;
     height: 100px;
-    background-color: #555555; /* Темный фон для ячеек */
+    background-color: #555555; 
     border-radius: 10px;
     border: none;
     position: relative;
@@ -48,7 +48,7 @@ h1 {
 }
 
 .hole.mole {
-    background-color: orange; /* Фон, когда появляется крот */
+    background-color: orange; 
 }
 
 button:focus {
@@ -59,12 +59,12 @@ button:focus {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #FFA500; /* Оранжевый фон */
+    background-color: #FFA500; 
     color: white;
     border: none;
     border-radius: 5px;
 }
 
 #start-game:hover {
-    background-color: #ff7f00; /* Более темный оттенок оранжевого на ховер */
+    background-color: #ff7f00; 
 }

@@ -90,7 +90,7 @@ function hideMole() {
     if (activeMoleIndex >= 0) {
         holes[activeMoleIndex].classList.remove('mole');
         holes[activeMoleIndex].innerHTML = ''; // Убираем SVG крота
-        holes[activeMoleIndex].style.backgroundColor = "#dcdcdc"; // Возвращаем исходный фон
+        holes[activeMoleIndex].style.backgroundColor = "#555555"; // Возвращаем исходный фон
     }
 }
 
@@ -102,7 +102,7 @@ holes.forEach((hole, index) => {
             scoreDisplay.textContent = `Очки: ${score}`;
             hole.classList.remove('mole');
             hole.innerHTML = ''; // Убираем SVG крота
-            hole.style.backgroundColor = "#dcdcdc"; // Возвращаем исходный фон
+            hole.style.backgroundColor = "#555555"; // Возвращаем исходный фон
         }
     });
 });
